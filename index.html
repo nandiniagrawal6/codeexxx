@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>codeexxx</title>
+	<link rel="stylesheet" href="layout.css">
+	<script src="https://kit.fontawesome.com/4c73eb6e1f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+
+		<div class="left">
+			<label><i class="fa-brands fa-html5"></i>HTML</label>
+			<textarea id="htmlcode" onkeyup="run()"></textarea>
+		
+			<label><i class="fa-brands fa-css3-alt"></i>CSS</label>
+			<textarea id="csscode" onkeyup="run()"></textarea>
+
+			<label><i class="fa-brands fa-js"></i>JS</label>
+			<textarea id="jscode" onkeyup="run()"></textarea>
+		</div>
+
+		<div class="right">
+			<label><i class="fa-solid fa-play"></i>OutPut</label>
+			<iframe id="output"></iframe>
+		</div>
+
+	</div>
+
+	<script>
+		function run() 
+		{
+			
+			let HtmlCode = document.getElementById("htmlcode").value ;
+			let CssCode = document.getElementById("csscode").value ;
+			let JsCode = document.getElementById("jscode").value ;
+			let output = document.getElementById("output");
+
+			output.contentDocument.body.innerHTML = HtmlCode + "<style>" +CssCode + "</style>"; 
+			output.contentWindow.eval(JsCode);
+		}
+	</script>
+</body>
+</html>
